@@ -1,64 +1,81 @@
-<script setup lang="ts">
-	import { useStore } from '@/store';
-	import VitailseLogo from '@/assets/logo.png';
-	useHead({
-		title: 'Vitailse | Opinionated vite starter template',
-	});
+<script lang="ts">
+import { defineComponent } from 'vue'
+import 'vue3-carousel/dist/carousel.css'
+import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
 
-	const store = useStore();
-	const { t } = useI18n();
+export default defineComponent({
+  name: 'home',
+  components: {
+    Carousel,
+    Slide,
+    Pagination,
+    Navigation,
+  },
+  setup() {
+    const img = ref<Array<string>>([
+      '/img/CarouselImages/2.jpg',
+      '/img/CarouselImages/1.jpg',
+      '/img/CarouselImages/3.jpg',
+      '/img/CarouselImages/4.jpg',
+      '/img/CarouselImages/5.jpg',
+      '/img/CarouselImages/6.jpg',
+    ])
+    return {
+      img,
+    }
+  }
+})
 </script>
 
 <template>
-	<div class="grid place-items-center min-h-[80vh]">
-		<div>
-			<img :src="VitailseLogo" width="300" class="mx-auto" />
-			<p class="lg:text-left text-center">
-				{{ t('intro.desc') }}
-				<a
-					href="https://tailwindcss.com/"
-					class="text-blue-500 hover:underline"
-					>TailwindCSS</a
-				>
-			</p>
-			<p class="text-center">
-				{{ t('intro.github') }}
-				<a
-					class="text-blue-500 hover:underline"
-					href="https://github.com/zynth17/vitailse"
-					>Github Repo</a
-				>
-			</p>
-			<div class="mt-5 text-center">
-				<button
-					@click="store.$state.count++"
-					class="
-						px-4
-						py-2
-						dark:bg-blue-800
-						bg-blue-500
-						text-white
-						rounded
-					"
-				>
-					Count : {{ store.$state.count }}
-				</button>
-			</div>
-		</div>
-		<router-link
-			:to="{ name: 'other-page' }"
-			class="
-				mt-5
-				text-center
-				hover:text-gray-200
-				dark:hover:text-gray-500
-				hover:underline
-			"
-			>{{ t('pages.other.menu') }}</router-link
-		>
-	</div>
+  <div class="bg-gray-50 w-full">
+    <main class="pt-5 w-4/5 mx-auto">
+      <Carousel>
+        <Slide v-for="slide in img" :key="slide">
+          <div class="carousel__item">
+            <img :src="slide" alt="" class="inset-0 object-cover">
+          </div>
+        </Slide>
+
+        <template #addons>
+          <Navigation />
+          <Pagination />
+        </template>
+      </Carousel>
+      <div>
+        <router-link to="/Servislerimiz">go to services</router-link>
+      </div>
+    </main>
+    <footer class="py-6 text-sm text-center text-gray-700">
+
+    </footer>
+  </div>
 </template>
 
+
+
+<style>
+.carousel__item {
+  min-height: 480px;
+  width: 100%;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel__slide {
+  padding: 10px;
+}
+
+.carousel__prev,
+.carousel__next {
+  box-sizing: content-box;
+}
+</style>
+
 <route lang="yaml">
-name: home
+  name: home
 </route>
