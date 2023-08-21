@@ -1,5 +1,6 @@
 <script lang="ts">
-import { ref, defineComponent } from 'vue';
+import { defineComponent } from 'vue';
+import { gsap } from "gsap"
 
 interface NavLink {
     link: string;
