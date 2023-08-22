@@ -1,8 +1,8 @@
 <script setup lang="ts">
-	useHead({
-		title: '404. Not Found',
-	});
-	const { t } = useI18n();
+useHead({
+	title: '404. Not Found',
+});
+const { t } = useI18n();
 </script>
 
 <template>
