@@ -12,3 +12,8 @@ export default {
     <cars-filo />
   </div>
 </template>
+
+
+<route lang="yaml">
+  name : cars
+</route>

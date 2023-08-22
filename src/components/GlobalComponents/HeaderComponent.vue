@@ -1,12 +1,15 @@
 <template>
-    <div class="header-component fontFamilyCinzel">
-        <!-- Top Nav -->
-        <logo-component :logoSrc="logoImage" />
-        <top-nav-component :links="links" />
+    <div class="border-b">
+        <div class="header-component fontFamilyCinzel px-10 lg:px-20">
+            <!-- Top Nav -->
+            <logo-component :logoSrc="logoImage" />
+            <top-nav-component :links="links" />
 
-        <!-- Side Nav -->
-        <humburger-component :toggleSideNav="toggleSideNav" :isActive="isActive" class="hamburger" />
-        <side-nav-component :links="links" :sideNavMouseOver="sideNavMouseOver" :sideNavMouseLeave="sideNavMouseLeave" />
+            <!-- Side Nav -->
+            <humburger-component :toggleSideNav="toggleSideNav" :isActive="isActive" />
+            <side-nav-component :links="links" :sideNavMouseOver="sideNavMouseOver"
+                :sideNavMouseLeave="sideNavMouseLeave" />
+        </div>
     </div>
 </template>
 

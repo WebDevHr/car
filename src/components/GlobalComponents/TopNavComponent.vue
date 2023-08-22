@@ -44,14 +44,14 @@ export default defineComponent({
 </script>
 
 <template>
-    <nav class="md:flex md:flex-row hidden">
+    <nav class="md:flex md:flex-row hidden h-19">
         <div v-for="(item, index) in links" :key="index" class="custom-style trigger-hover relative top-nav" :links="links"
             @mouseover="topDropDownOpen(index, item.subLinks.length != 0)" @mouseleave="topDropDownClose(index)">
             <router-link :to="item.link">
                 <div class="flex flex-col">
-                    <button class=" text-center text-lg hover:text-xl lg:w-40 md:w-32 w-28 
-                            hover:text-gray-950 text-gray-400 
-                        py-[26px] rounded-lg ease-in-out duration-300 flex justify-center items-center">
+                    <button class="text-base hover:text-lg lg:text-lg lg:hover:text-xl lg:w-36 md:w-26 w-24 
+                             text-gray-400 hover:text-gray-900
+                        py-[26px] ease-in-out duration-300 flex justify-center items-center">
                         {{ item.linkName }}
                     </button>
                     <div class="flex flex-row justify-center">
@@ -60,11 +60,10 @@ export default defineComponent({
                 </div>
             </router-link>
 
-            <div v-if="item.subLinks.length != 0"
-                class="hidden felx-row items-center justify-center rounded-b absolute 
-                    border fontFamilyNunito top-nav-ul z-[1005] bg-white w-48 overflow-hidden hover:text-gray-950 text-gray-400" :data-index="index">
+            <div v-if="item.subLinks.length != 0" class="hidden felx-row items-center justify-center rounded-b absolute 
+                    shadow fontFamilyNunito top-nav-ul z-[1005] bg-white overflow-hidden" :data-index="index">
                 <ul class="fontFamilyCinzel">
-                    <li v-for="(sub, i) in item.subLinks" :key="i" class="hover:text-gray-950 text-gray-400 p-1">
+                    <li v-for="(sub, i) in item.subLinks" :key="i" class="hover:text-gray-900 text-gray-400 p-1">
                         <a href="">{{ sub }}</a>
                     </li>
                 </ul>

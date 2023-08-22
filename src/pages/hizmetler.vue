@@ -6,3 +6,7 @@
     Servislermiz kismini yazmaliyiz
   </div>
 </template>
+
+<route lang="yaml">
+  name : services
+</route>

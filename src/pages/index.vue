@@ -30,7 +30,11 @@ export default defineComponent({
 <template>
   <div class="bg-gray-50 w-full">
     <main class="md:pt-5 md:w-4/5 mx-auto">
+<<<<<<< HEAD
       <Carousel>
+=======
+      <Carousel :wrap-around="true" :autoplay="4000" :transition="800">
+>>>>>>> ahmet
         <Slide v-for="slide in img" :key="slide">
           <div class="carousel__item">
             <img :src="slide" alt="" class="inset-0 object-cover">
