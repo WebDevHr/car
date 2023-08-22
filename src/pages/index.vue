@@ -13,9 +13,9 @@ export default defineComponent({
   },
   setup() {
     const img = ref<Array<string>>([
+      '/img/CarouselImages/3.jpg',
       '/img/CarouselImages/2.jpg',
       '/img/CarouselImages/1.jpg',
-      '/img/CarouselImages/3.jpg',
       '/img/CarouselImages/4.jpg',
       '/img/CarouselImages/5.jpg',
       '/img/CarouselImages/6.jpg',
@@ -29,8 +29,8 @@ export default defineComponent({
 
 <template>
   <div class="bg-gray-50 w-full">
-    <main class="pt-5 w-4/5 mx-auto">
-      <Carousel>
+    <main class="md:pt-5 md:w-4/5 mx-auto">
+      <Carousel :wrap-around="true" :autoplay="4000" :transition="800">
         <Slide v-for="slide in img" :key="slide">
           <div class="carousel__item">
             <img :src="slide" alt="" class="inset-0 object-cover">
@@ -56,7 +56,6 @@ export default defineComponent({
 
 <style>
 .carousel__item {
-  min-height: 480px;
   width: 100%;
   background-color: white;
   color: black;

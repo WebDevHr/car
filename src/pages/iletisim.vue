@@ -8,3 +8,7 @@ export default defineComponent({})
     iletisim burada yazilir
   </div>
 </template>
+
+<route lang="yaml">
+  name : contact
+</route>
