@@ -4,6 +4,9 @@
 		<router-view :key="$route.fullPath" />
 		<footer-component />
 	</div>
+	<div>
+		<p>muaasfnas</p>
+	</div>
 </template>
   
 <script lang="ts">
