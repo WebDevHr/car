@@ -1,8 +1,23 @@
+<template>
+    <div class="header-component fontFamilyCinzel">
+        <!-- Top Nav -->
+        <logo-component :logoSrc="logoImage" />
+        <top-nav-component :links="links" />
+
+        <!-- Side Nav -->
+        <humburger-component :toggleSideNav="toggleSideNav" :isActive="isActive" class="hamburger" />
+        <side-nav-component :links="links" :sideNavMouseOver="sideNavMouseOver" :sideNavMouseLeave="sideNavMouseLeave" />
+    </div>
+</template>
+
+
 <script lang="ts">
 import { gsap } from "gsap"
 import { ref, defineComponent } from 'vue';
 import LogoComponent from "./LogoComponent.vue"
 import TopNavComponent from "./TopNavComponent.vue"
+import SideNavComponent from "./SideNavComponent.vue"
+import HumburgerComponent from "./HumburgerComponent.vue"
 
 
 
@@ -16,7 +31,9 @@ interface NavLink {
 export default defineComponent({
     components: {
         LogoComponent,
-        TopNavComponent
+        TopNavComponent,
+        HumburgerComponent,
+        SideNavComponent
     },
     setup() {
         const logoImage = '/img/carLogo.png'
@@ -54,14 +71,15 @@ export default defineComponent({
             }
         ])
 
-        function toggleSideNav() {
-            if (isActive.value === true) {
+        function toggleSideNav(data: boolean) {
+            isActive.value = data;
+            if (data === true) {
                 gsap.to(".sideNav", { width: '50%', display: 'block' })
             } else {
                 gsap.to(".sideNav", { width: '0', display: 'none' })
             }
         }
-        function test(index: any, haveSubs: boolean) {
+        function sideNavMouseOver(index: any, haveSubs: boolean) {
             const targetElement = document.querySelector(`.sideNav .sublinkUl[data-index="${index}"]`);
             // const targetElement2 = document.querySelector(`.sideNav .sublinkUl[data-index="${index}"] .sublinksStagger`);
             if (targetElement && haveSubs) {
@@ -69,7 +87,7 @@ export default defineComponent({
             }
         }
 
-        function test2(index: any) {
+        function sideNavMouseLeave(index: any) {
             const targetElement = document.querySelector(`.sideNav .sublinkUl[data-index="${index}"]`);
             if (targetElement) {
                 gsap.to(targetElement, { display: 'none', height: '0' });
@@ -109,95 +127,11 @@ export default defineComponent({
             isActive,
             logoImage,
             toggleSideNav,
-            test,
-            test2,
+            sideNavMouseOver,
+            sideNavMouseLeave,
         }
     }
 });
 </script>
 
-<template>
-    <div class="flex relative flex-row justify-between md:justify-center items-center fontFamilyCinzel border-b">
-        <logo-component :logoSrc="logoImage" />
-        <top-nav-component :links="links" />
 
-
-        <div class=" flex justify-center items-center w-10 h-20 z-[1002] hamburger"
-            :class="{ 'fixed top-0 right-20': isActive, 'mr-20': !isActive }" @click="toggleSideNav">
-            <button class="w-8 h-8 flex flex-col justify-center items-center focus:outline-none md:hidden"
-                @click="isActive = !isActive">
-                <span class="w-8 h-[3px] bg-black transition-transform duration-300 transform origin-center rounded"
-                    :class="{ 'rotate-45': isActive, 'rotate-0': !isActive }"></span>
-                <span class="w-8 h-[3px] bg-black mt-[5px] transition-opacity duration-300 rounded "
-                    :class="{ 'opacity-0': isActive }"></span>
-                <span
-                    class="w-8 h-[3px] bg-black mt-[5px] transition-transform duration-300 transform origin-center rounded"
-                    :class="{ '-rotate-45': isActive, 'rotate-0': !isActive }"></span>
-            </button>
-        </div>
-        <nav
-            class="md:hidden fixed justify-end inset-y-0 right-0 w-0 hidden z-[1001] bg-black text-white sideNav overflow-hidden">
-            <div class="flex flex-col items-center pt-20 w-full">
-                <div v-for="(item, index) in links" :key="index" @mouseover="test(index, item.subLinks.length != 0)"
-                    @mouseleave="test2(index)">
-                    <router-link :to="item.link">
-                        <div class="flex flex-col items-center justify-center w-full">
-                            <button class="text-xl w-full hover:text-white text-gray-400 
-                                py-2 my-2 ease-in-out duration-300 tracking-widest">
-                                {{ item.linkName }}
-                            </button>
-                            <span class="custom-class bg-white"></span>
-                        </div>
-                    </router-link>
-
-                    <ul class="hidden h-0 flex-col justify-center items-center text-sm sublinkUl overflow-hidden"
-                        :class="{ 'pb-2': item.subLinks.length != 0 }" :data-index="index">
-                        <li v-for="(sub, i) in item.subLinks" :key="i"
-                            class=" hover:text-white text-gray-400 sublinksStagger"
-                            :class="{ 'py-1': item.subLinks.length != 0 }">
-                            <a href="">{{ sub }}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-</template>
-
-
-
-<style scoped>
-.custom-class {
-    width: 0px;
-    height: 2px;
-    transition: all 0.3s ease-in-out;
-}
-
-.trigger-hover:hover .custom-class {
-    width: 100%;
-}
-
-/* hamburger menu  */
-
-.rotate-45 {
-    transform: rotate(45deg);
-    @apply translate-y-2;
-    background-color: white;
-}
-
-.rotate-0 {
-    transform: rotate(0);
-}
-
-.-rotate-45 {
-    transform: rotate(-45deg);
-    @apply -translate-y-2;
-    background-color: white;
-
-}
-
-.opacity-0 {
-    opacity: 0;
-    background-color: white;
-}
-</style>

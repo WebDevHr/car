@@ -12,12 +12,14 @@ declare module 'vue' {
     CarsFilo: typeof import('./src/components/CarsComponents/CarsFilo.vue')['default']
     FooterComponent: typeof import('./src/components/GlobalComponents/FooterComponent.vue')['default']
     HeaderComponent: typeof import('./src/components/GlobalComponents/HeaderComponent.vue')['default']
+    HumburgerComponent: typeof import('./src/components/GlobalComponents/HumburgerComponent.vue')['default']
     'Icon:bx:bxMoon': typeof import('~icons/bx/bx-moon')['default']
     'Icon:bx:bxsMoon': typeof import('~icons/bx/bxs-moon')['default']
     'IconAkarIcons:githubFill': typeof import('~icons/akar-icons/github-fill')['default']
     LogoComponent: typeof import('./src/components/GlobalComponents/LogoComponent.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SideNavComponent: typeof import('./src/components/GlobalComponents/SideNavComponent.vue')['default']
     TopNavComponent: typeof import('./src/components/GlobalComponents/TopNavComponent.vue')['default']
   }
 }

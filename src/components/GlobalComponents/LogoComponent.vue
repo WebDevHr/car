@@ -18,9 +18,9 @@ export default defineComponent({
 </script>
 
 <template>
-    <div class="flex items-center justify-center w-28 h-20 hover:cursor-pointer lg:mr-20 ml-20 md:ml-0">
+    <div class="logo">
         <router-link :to="{ name: 'home' }">
-            <img :src="logoImage" alt="Logo" class="w-28">
+            <img :src="logoImage" alt="Logo" class="logo-img">
         </router-link>
     </div>
 </template>
