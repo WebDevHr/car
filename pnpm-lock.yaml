@@ -37,7 +37,7 @@ dependencies:
     version: 3.12.2
   pinia:
     specifier: ^2.0.16
-    version: 2.0.16(typescript@4.7.4)(vue@3.2.37)
+    version: 2.0.16(typescript@5.1.6)(vue@3.2.37)
   postcss:
     specifier: ^8.4.14
     version: 8.4.14
@@ -86,8 +86,8 @@ devDependencies:
     specifier: ^4.7.1
     version: 4.7.1
   typescript:
-    specifier: ^4.7.4
-    version: 4.7.4
+    specifier: ^5.1.6
+    version: 5.1.6
   unplugin-auto-import:
     specifier: ^0.16.6
     version: 0.16.6(@vueuse/core@8.9.3)(rollup@2.79.1)
@@ -123,7 +123,7 @@ devDependencies:
     version: 0.18.0
   vue-tsc:
     specifier: ^0.38.5
-    version: 0.38.5(typescript@4.7.4)
+    version: 0.38.5(typescript@5.1.6)
 
 packages:
 
@@ -4209,7 +4209,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /pinia@2.0.16(typescript@4.7.4)(vue@3.2.37):
+  /pinia@2.0.16(typescript@5.1.6)(vue@3.2.37):
     resolution: {integrity: sha512-9/LMVO+/epny1NBfC77vnps4g3JRezxhhoF1xLUk8mZkUIxVnwfEAIRiAX8mYBTD/KCwZqnDMqXc8w3eU0FQGg==}
     peerDependencies:
       '@vue/composition-api': ^1.4.0
@@ -4222,7 +4222,7 @@ packages:
         optional: true
     dependencies:
       '@vue/devtools-api': 6.2.1
-      typescript: 4.7.4
+      typescript: 5.1.6
       vue: 3.2.37
       vue-demi: 0.13.4(vue@3.2.37)
     dev: false
@@ -4990,9 +4990,9 @@ packages:
       is-typed-array: 1.1.12
     dev: true
 
-  /typescript@4.7.4:
-    resolution: {integrity: sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==}
-    engines: {node: '>=4.2.0'}
+  /typescript@5.1.6:
+    resolution: {integrity: sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==}
+    engines: {node: '>=14.17'}
     hasBin: true
 
   /ufo@1.2.0:
@@ -5458,14 +5458,14 @@ packages:
       '@vue/devtools-api': 6.2.1
       vue: 3.2.37
 
-  /vue-tsc@0.38.5(typescript@4.7.4):
+  /vue-tsc@0.38.5(typescript@5.1.6):
     resolution: {integrity: sha512-AFlqvwpENOTTJxS1Gl1uG0ZVsvtGCbgv9d0i4fXk5Pnao/ETVwWewPEsj+4cPlwa5htO9WhK6qfWwoqcCqg0yQ==}
     hasBin: true
     peerDependencies:
       typescript: '*'
     dependencies:
       '@volar/vue-typescript': 0.38.5
-      typescript: 4.7.4
+      typescript: 5.1.6
     dev: true
 
   /vue3-carousel@0.3.1(vue@3.2.37):
