@@ -49,7 +49,7 @@ export default defineComponent({
             @mouseover="topDropDownOpen(index, item.subLinks.length != 0)" @mouseleave="topDropDownClose(index)">
             <router-link :to="item.link">
                 <div class="flex flex-col">
-                    <button class="text-base hover:text-lg lg:text-lg lg:hover:text-xl lg:w-36 md:w-26 w-24 
+                    <button class="text-base lg:text-lg lg:w-36 md:w-26 w-24 
                              text-gray-400 hover:text-gray-900
                         py-[26px] ease-in-out duration-300 flex justify-center items-center">
                         {{ item.linkName }}
