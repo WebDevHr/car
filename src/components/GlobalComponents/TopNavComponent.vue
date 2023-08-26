@@ -44,12 +44,12 @@ export default defineComponent({
 </script>
 
 <template>
-    <nav class="md:flex md:flex-row hidden h-20">
+    <nav class="md:flex md:flex-row hidden h-19">
         <div v-for="(item, index) in links" :key="index" class="custom-style trigger-hover relative top-nav" :links="links"
             @mouseover="topDropDownOpen(index, item.subLinks.length != 0)" @mouseleave="topDropDownClose(index)">
             <router-link :to="item.link">
                 <div class="flex flex-col">
-                    <button class="text-base hover:text-lg lg:text-lg lg:hover:text-xl lg:w-36 md:w-26 w-24 
+                    <button class="text-lg lg:w-36 md:w-26 w-24 
                              text-gray-400 hover:text-gray-900
                         py-[26px] ease-in-out duration-300 flex justify-center items-center">
                         {{ item.linkName }}

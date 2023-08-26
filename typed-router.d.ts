@@ -37,6 +37,7 @@ declare module '@vue-router/routes' {
     'contact': RouteRecordInfo<'contact', '/iletisim', Record<never, never>, Record<never, never>>,
     'other-page': RouteRecordInfo<'other-page', '/other-page', Record<never, never>, Record<never, never>>,
     '/s': RouteRecordInfo<'/s', '/s', Record<never, never>, Record<never, never>>,
+    '/teklif-al': RouteRecordInfo<'/teklif-al', '/teklif-al', Record<never, never>, Record<never, never>>,
   }
 }
 
