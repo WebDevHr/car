@@ -76,7 +76,7 @@ export default defineComponent({
 <template>
   <div class="bg-gray-50 ">
     <main>
-      <Carousel :wrap-around="true" :transition="800">
+      <Carousel :wrap-around="true" :transition="800" :autoplay="4000" :pause-autoplay-on-hover="true">
         <Slide v-for="(slide, index) in carouselData" :key="index" class="w-full padding-0">
           <div class="carousel__item relative object-scale-down w-full max-h-[500px]">
             <img :src="slide.img" alt="" class="inset-0">
