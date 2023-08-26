@@ -49,9 +49,9 @@ export default defineComponent({
                 subLinks: []
             },
             {
-                link: '/hakkimizda',
-                linkName: 'Hakkımızda',
-                dropDownImg: '/img/ddImg.png',
+                link: '/araclar',
+                linkName: 'Araçlar',
+                dropDownImg: '',
                 subLinks: []
             },
             {
@@ -61,9 +61,9 @@ export default defineComponent({
                 subLinks: ['Genel haberler', 'Araclarin durumu', 'Araclarin durumu', 'Araclarin durumu']
             },
             {
-                link: '/araclar',
-                linkName: 'Araçlar',
-                dropDownImg: '',
+                link: '/hakkimizda',
+                linkName: 'Hakkımızda',
+                dropDownImg: '/img/ddImg.png',
                 subLinks: []
             },
             {
