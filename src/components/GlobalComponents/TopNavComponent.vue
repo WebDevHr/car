@@ -21,10 +21,12 @@ export default defineComponent({
         }
     },
     setup(props) {
+        const x = ref(0)
         const links = computed(() => {
             return props.links
         })
         function topDropDownOpen(index: any, subsNum: number) {
+            x.value = 2;
             const targetElement = document.querySelector(`.top-nav .top-nav-ul[data-index="${index}"]`);
             // const targetElement2 = document.querySelector(`.sideNav .sublinkUl[data-index="${index}"] .sublinksStagger`);
             const height = (subsNum * 40 + 100).toString() + 'px'
@@ -34,6 +36,7 @@ export default defineComponent({
         }
 
         function topDropDownClose(index: any) {
+            x.value = 0;
             const targetElement = document.querySelector(`.top-nav .top-nav-ul[data-index="${index}"]`);
             if (targetElement) {
                 gsap.to(targetElement, { display: 'none', height: 0, opacity: 0 });
@@ -42,7 +45,8 @@ export default defineComponent({
         return {
             links,
             topDropDownOpen,
-            topDropDownClose
+            topDropDownClose,
+            x
         }
     }
 });
@@ -54,12 +58,17 @@ export default defineComponent({
             @mouseover="topDropDownOpen(index, item.subLinks.length)" @mouseleave="topDropDownClose(index)">
             <router-link :to="item.link">
                 <div class="flex flex-col">
+<<<<<<< HEAD
                     <button class="text-base hover:text-lg lg:text-lg lg:hover:text-xl lg:w-36 md:w-26 w-24 
+=======
+                    <button
+                        class="text-lg lg:w-36 md:w-26 w-24 
+>>>>>>> work-place
                              text-gray-400 hover:text-gray-900
-                        py-[26px] ease-in-out duration-300 flex justify-center items-center font-semibold">
+                        py-[26px] ease-in-out duration-300 flex justify-center items-center font-semibold top-nav-icon">
                         {{ item.linkName }}
                         <span v-if="item.subLinks.length != 0" class="pl-1">
-                            <Icon icon="mingcute:down-fill" />
+                            <Icon icon="mingcute:down-fill" :rotate="x" />
                         </span>
                     </button>
 
