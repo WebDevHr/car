@@ -8,7 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AppHeader: typeof import('./src/components/AppHeader.vue')['default']
-    BaseButton: typeof import('./src/components/GlobalComponents/BaseButton.vue')['default']
+    BaseButton: typeof import('./src/components/GlobalComponents/BaseComponents/BaseButton.vue')['default']
     CarsCarousel: typeof import('./src/components/CarsComponents/CarsCarousel.vue')['default']
     CarsFilo: typeof import('./src/components/CarsComponents/CarsFilo.vue')['default']
     FooterComponent: typeof import('./src/components/GlobalComponents/FooterComponent.vue')['default']
@@ -22,5 +22,6 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     SideNavComponent: typeof import('./src/components/GlobalComponents/SideNavComponent.vue')['default']
     TopNavComponent: typeof import('./src/components/GlobalComponents/TopNavComponent.vue')['default']
+    WhyFiloComponent: typeof import('./src/components/FirstPageComponents/WhyFiloComponent.vue')['default']
   }
 }

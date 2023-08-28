@@ -94,10 +94,6 @@ export default defineComponent({
     font-weight: light;
 }
 
-.footer {
-    /* Adjust spacing and other styles as needed */
-}
-
 /* Add responsive styling for different screen sizes */
 @media screen and (max-width: 767px) {
     .col-span-1 {
