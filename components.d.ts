@@ -22,5 +22,6 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     SideNavComponent: typeof import('./src/components/GlobalComponents/SideNavComponent.vue')['default']
     TopNavComponent: typeof import('./src/components/GlobalComponents/TopNavComponent.vue')['default']
+    WhyFiloComponent: typeof import('./src/components/FirstPageComponents/WhyFiloComponent.vue')['default']
   }
 }
