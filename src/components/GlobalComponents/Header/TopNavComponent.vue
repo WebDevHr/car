@@ -60,18 +60,9 @@ export default defineComponent({
             @mouseover="topDropDownOpen(index, item.subLinks.length)" @mouseleave="topDropDownClose(index)">
             <router-link :to="item.link">
                 <div class="flex flex-col">
-<<<<<<< HEAD
-                    <button class="text-base hover:text-lg lg:text-lg lg:hover:text-xl lg:w-36 md:w-26 w-24 
-=======
                     <button
-<<<<<<< HEAD:src/components/GlobalComponents/TopNavComponent.vue
-                        class="text-lg lg:w-36 md:w-26 w-24 
->>>>>>> work-place
-=======
-                        class=" lg:w-36 md:w-26 w-24 
->>>>>>> work-place:src/components/GlobalComponents/Header/TopNavComponent.vue
-                             text-gray-400 hover:text-gray-900
-                        py-[26px] ease-in-out duration-300 flex justify-center items-center font-semibold top-nav-icon">
+                        class=" lg:w-36 md:w-26 w-24 text-gray-400 hover:text-gray-900
+                            py-[26px] ease-in-out duration-300 flex justify-center items-center font-semibold top-nav-icon">
                         {{ item.linkName }}
                         <span v-if="item.subLinks.length != 0" class="pl-1">
 
