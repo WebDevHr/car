@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style scoped> .parallax {
- 	background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../public/img/AboutUs/1.jpg");
+ 	background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img/AboutUs/1.jpg");
  	min-height: 500px;
  	/* Create the parallax scrolling effect */
  	background-attachment: fixed;

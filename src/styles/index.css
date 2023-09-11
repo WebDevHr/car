@@ -5,10 +5,10 @@
 @layer base {
 /* logo */
 .logo {
-    @apply flex items-center justify-center w-28 h-20 hover:cursor-pointer shrink-0;
+    @apply flex items-center justify-center w-32 h-20 hover:cursor-pointer shrink-0;
 }
-.logo .logo-img {
-    @apply w-28;
+.logo .inside-logo {
+    @apply flex justify-center items-center w-32 shadow px-4 py-2 rounded;
 }
 
 /* header */

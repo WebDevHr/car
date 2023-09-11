@@ -24,11 +24,12 @@ export default defineComponent({
                 İster tek bir araca isterseniz onlarcasına ihtiyacınız olsun, filo kiralama hizmeti her zaman en avantajlı
                 seçenek.
             </p>
-            <button
-                class="min-w-[150px] shadow px-5 py-3 rounded bg-green-600 hover:bg-green-700 text-white mt-10 text-md tracking-wide">Filo
-                Kiralamanın
-                avantajları
-            </button>
+            <router-link :to="{ name: 'neden-filo' }">
+                <button
+                    class="min-w-[150px] shadow px-5 py-3 rounded bg-green-600 hover:bg-green-700 text-white mt-5 text-md tracking-wide">
+                    Filo Kiralamanın avantajları
+                </button>
+            </router-link>
         </div>
     </div>
 </template>
