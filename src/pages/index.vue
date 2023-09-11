@@ -3,6 +3,7 @@ import { defineComponent } from 'vue'
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
 import WhyFiloComponent from "@/components/FirstPageComponents/WhyFiloComponent.vue"
+import NedenBiz from "@/components/FirstPageComponents/NedenBizComponent.vue"
 
 export default defineComponent({
   name: 'home',
@@ -11,18 +12,11 @@ export default defineComponent({
     Slide,
     Pagination,
     Navigation,
-    WhyFiloComponent
+    WhyFiloComponent,
+    NedenBiz
   },
   setup() {
-    const img = ref<Array<string>>([
-      '/img/CarouselImages/1.jpg',
-      '/img/CarouselImages/2.jpg',
-      '/img/CarouselImages/3.jpg',
-      '/img/CarouselImages/4.jpg',
-      '/img/CarouselImages/5.jpg',
-      '/img/CarouselImages/6.jpg',
-      '/img/CarouselImages/7.jpg',
-    ])
+    const isLoading = ref(true)
     const carouselData = ref([
       {
         img: '/img/CarouselImages/1.jpg',
@@ -67,21 +61,40 @@ export default defineComponent({
         buttonRoute: ""
       }
     ])
+
+    const onImageLoad = () => {
+      isLoading.value = false;
+    }
+
+    onMounted(() => {
+      // Simulate image loading delay
+      setTimeout(() => {
+        isLoading.value = false;
+      }, 1000); // Adjust the delay according to your needs
+    });
+
     return {
-      img,
-      carouselData
+      carouselData,
+      isLoading,
+      onImageLoad
     }
   }
 })
 </script>
 
 <template>
-  <div class="bg-gray-50 ">
+  {{ isLoading }}
+  <div v-if="isLoading">
+    <div class="w-full h-[800px] bg-red-500">
+      <img src="" alt="">
+    </div>
+  </div>
+  <div v-else class="bg-gray-50 ">
     <main>
       <Carousel :wrap-around="true" :transition="800" :autoplay="4000" :pause-autoplay-on-hover="true">
         <Slide v-for="(slide, index) in carouselData" :key="index" class="w-full padding-0">
           <div class="carousel__item relative object-scale-down w-full max-h-[600px]">
-            <img :src="slide.img" alt="" class="inset-0">
+            <img v-if="!isLoading" :src="slide.img" alt="" class="inset-0" @load="onImageLoad">
             <div
               class="absolute z-[1009] max-w-[600px] top-0 left-0 md:ml-[100px] md:mt-[100px] sm:mx-[20px] sm:mt-[50px] mx-[20px] mt-[20px] text-left">
               <h1 class="text-white text-[24px] sm:text-[42px] md:text-[48px] font-bold w-[300px] leading-10">{{
@@ -103,10 +116,8 @@ export default defineComponent({
           <Pagination />
         </template>
       </Carousel>
-      <div class="sm:hidden h-[500px] w-full bg-white"></div>
-      <div>
-        <WhyFiloComponent />
-      </div>
+      <WhyFiloComponent />
+      <neden-biz />
     </main>
   </div>
 </template>
