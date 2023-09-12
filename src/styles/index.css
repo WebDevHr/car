@@ -5,7 +5,7 @@
 @layer base {
 /* logo */
 .logo {
-    @apply flex items-center justify-center w-32 h-20 hover:cursor-pointer shrink-0;
+    @apply flex items-center justify-center w-32 h-20 md:h-auto hover:cursor-pointer shrink-0;
 }
 .logo .inside-logo {
     @apply flex justify-center items-center w-32 shadow px-4 py-2 rounded;

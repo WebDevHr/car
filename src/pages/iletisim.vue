@@ -5,7 +5,7 @@ export default defineComponent({})
 
 <template>
   <div class="text-center py-10">
-    iletisim burada yazilir
+    <div>İletişim</div>
   </div>
 </template>
 
