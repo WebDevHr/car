@@ -62,7 +62,7 @@ export default defineComponent({
                 <div class="flex flex-col">
                     <button
                         class=" lg:w-36 md:w-26 w-24 
-                             text-gray-400 hover:text-gray-900
+                             text-gray-500 hover:text-orange-500
                         py-[26px] ease-in-out duration-300 flex justify-center items-center font-semibold top-nav-icon">
                         {{ item.linkName }}
                         <span v-if="item.subLinks.length != 0" class="pl-1">
@@ -73,7 +73,7 @@ export default defineComponent({
                     </button>
 
                     <div class="flex flex-row justify-center">
-                        <span class="custom-class bg-black"></span>
+                        <span class="custom-class bg-orange-500"></span>
                     </div>
                 </div>
             </router-link>
@@ -85,7 +85,7 @@ export default defineComponent({
                 <ul class="fontFamilyCinzel">
 
                     <li v-for="(sub, i) in item.subLinks" :key="i"
-                        class="hover:text-black text-gray-400 p-1 h-[40px] text-center font-semibold">
+                        class="hover:text-orange-500 text-gray-500 p-1 h-[40px] text-center font-semibold">
                         <router-link :to="sub">
                             {{ sub }}
                         </router-link>

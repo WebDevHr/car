@@ -7,10 +7,12 @@ export default defineComponent({
 
 
 <template>
-    <div class="flex md:flex-row flex-col justify-center items-center my-20">
-        <div
-            class="md:w-1/2 w-full flex justify-center items-end bg-[url('/img/neden.jpg')] min-h-[400px] bg-no-repeat bg-cover">
-            <img class="h-[250px] mb-10" src="/img/FiloImages/3.png" alt="fasdfs">
+    <div class="flex md:flex-row flex-col justify-center items-center my-20 w-full">
+        <div class="md:w-1/2 w-full ">
+            <div
+                class="flex justify-center items-end bg-[url('/img/neden.jpg')] min-h-[400px] bg-no-repeat bg-cover bg-center bg-fixed">
+                <img class="h-[250px] mb-10" src="/img/FiloImages/3.png" alt="fasdfs">
+            </div>
         </div>
         <div class="md:w-1/2 w-full flex flex-col md:items-start items-center justify-center 
             h-[400px] px-3 sm:px-10 lg:px-20 text-center sm:text-start bg-gray-200">
