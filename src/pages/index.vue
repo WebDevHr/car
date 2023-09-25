@@ -1,4 +1,8 @@
 <script lang="ts">
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 import { defineComponent } from 'vue'
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
@@ -76,14 +80,13 @@ export default defineComponent({
     return {
       carouselData,
       isLoading,
-      onImageLoad
+      onImageLoad,
     }
   }
 })
 </script>
 
 <template>
-  {{ isLoading }}
   <div v-if="isLoading">
     <div class="w-full h-[800px] bg-red-500">
       <img src="" alt="">
