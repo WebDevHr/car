@@ -61,14 +61,9 @@ export default defineComponent({
             <router-link :to="item.link">
                 <div class="flex flex-col">
                     <button
-<<<<<<< HEAD
-                        class=" lg:w-36 md:w-26 w-24 text-gray-400 hover:text-gray-900
-                            py-[26px] ease-in-out duration-300 flex justify-center items-center font-semibold top-nav-icon">
-=======
                         class=" lg:w-36 md:w-26 w-24 
                              text-gray-500 hover:text-orange-500
                         py-[26px] ease-in-out duration-300 flex justify-center items-center font-semibold top-nav-icon">
->>>>>>> work-place
                         {{ item.linkName }}
                         <span v-if="item.subLinks.length != 0" class="pl-1">
 
