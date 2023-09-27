@@ -31,10 +31,10 @@ declare module '@vue-router/routes' {
   export interface RouteNamedMap {
     'home': RouteRecordInfo<'home', '/', Record<never, never>, Record<never, never>>,
     'not-found': RouteRecordInfo<'not-found', '/:all(.*)', { all: ParamValue<true> }, { all: ParamValue<false> }>,
-    'cars': RouteRecordInfo<'cars', '/araclar', Record<never, never>, Record<never, never>>,
-    '/hakkimizda': RouteRecordInfo<'/hakkimizda', '/hakkimizda', Record<never, never>, Record<never, never>>,
+    'Araçlar': RouteRecordInfo<'Araçlar', '/araclar', Record<never, never>, Record<never, never>>,
+    'Hakkımızda': RouteRecordInfo<'Hakkımızda', '/hakkimizda', Record<never, never>, Record<never, never>>,
     'services': RouteRecordInfo<'services', '/hizmetler', Record<never, never>, Record<never, never>>,
-    'contact': RouteRecordInfo<'contact', '/iletisim', Record<never, never>, Record<never, never>>,
+    'İletişim': RouteRecordInfo<'İletişim', '/iletisim', Record<never, never>, Record<never, never>>,
     'neden-filo': RouteRecordInfo<'neden-filo', '/neden-filo', Record<never, never>, Record<never, never>>,
     'other-page': RouteRecordInfo<'other-page', '/other-page', Record<never, never>, Record<never, never>>,
     '/s': RouteRecordInfo<'/s', '/s', Record<never, never>, Record<never, never>>,

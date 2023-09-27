@@ -59,10 +59,10 @@ export default defineComponent({
             @mouseover="topDropDownOpen(index, item.subLinks.length)" @mouseleave="topDropDownClose(index)">
             <router-link :to="item.link">
                 <div class="flex flex-col">
-                    <button
-                        class=" lg:w-36 md:w-26 w-24 
+                    <button class=" lg:w-36 md:w-26 w-24 
                              text-gray-500 hover:text-orange-500
-                        py-[26px] ease-in-out duration-300 flex justify-center items-center font-semibold top-nav-icon">
+                        py-[26px] ease-in-out duration-300 flex justify-center items-center font-semibold top-nav-icon"
+                        :class="{ 'active-link': $route.path === item.link }">
                         {{ item.linkName }}
                         <span v-if="item.subLinks.length != 0" class="pl-1">
 
@@ -105,5 +105,9 @@ export default defineComponent({
 
 .trigger-hover:hover .custom-class {
     width: 100%;
+}
+
+.active-link {
+    color: orange;
 }
 </style>

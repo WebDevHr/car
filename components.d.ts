@@ -12,7 +12,6 @@ declare module 'vue' {
     BaseForm: typeof import('./src/components/GlobalComponents/BaseComponents/BaseForm.vue')['default']
     CarsCarousel: typeof import('./src/components/CarsComponents/CarsCarousel.vue')['default']
     CarsFilo: typeof import('./src/components/CarsComponents/CarsFilo.vue')['default']
-    Dsfsdf: typeof import('./src/components/GlobalComponents/Footer/dsfsdf.vue')['default']
     FooterComponent: typeof import('./src/components/GlobalComponents/Footer/FooterComponent.vue')['default']
     HeaderComponent: typeof import('./src/components/GlobalComponents/Header/HeaderComponent.vue')['default']
     HumburgerComponent: typeof import('./src/components/GlobalComponents/Header/HumburgerComponent.vue')['default']

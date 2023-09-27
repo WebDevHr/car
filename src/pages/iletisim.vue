@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, onMounted } from 'vue'
+import { defineComponent, onMounted, ref } from 'vue'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Icon } from '@iconify/vue';
@@ -19,7 +19,6 @@ export default defineComponent({
       // Add more fields as needed
     })
 
-
     onMounted(() => {
       gsap.from('.scrollContactForm', {
         x: 100,
@@ -30,7 +29,7 @@ export default defineComponent({
 
 
     return {
-      formData
+      formData,
     }
   }
 })
@@ -38,16 +37,19 @@ export default defineComponent({
 
 <template>
   <div>
-    <div class="flex flex-col py-10 px-20 border-b">
+    <div class="flex flex-col py-8 sm:px-20 xs:px-10 px-3  border-b bg-gray-100 xs:tracking-wider">
       <div class="flex justify-between items-center">
-        <div class="text-start h-10 text-2xl font-bold text-gray-700">
+        <div class="flex items-center text-start h-10 text-2xl font-bold text-gray-700">
           İletişim
         </div>
-        <div>
+        <div class="flex flex-row justify-center">
           <router-link to="/" class="hover:text-orange-500">
-            Home
+            <div class="flex flex-row items-center justify-center mr-3">
+              <Icon icon="mdi:home" width="22" height="22" class="mr-2" />Anasayfa
+            </div>
           </router-link>
-          <span>{{ $route.fullPath.replace('/', ' / ') }}</span>
+          /
+          <span class="ml-3 text-orange-500">{{ $route.name }}</span>
         </div>
       </div>
     </div>
@@ -103,7 +105,7 @@ export default defineComponent({
 </template>
 
 <route lang="yaml">
-  name : contact
+  name : İletişim
 </route>
 
 
@@ -113,6 +115,6 @@ export default defineComponent({
 }
 
 .orange-color::placeholder {
-  @apply text-orange-500;
+  color: rgb(229, 115, 22)
 }
 </style>

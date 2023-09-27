@@ -21,7 +21,6 @@ export default defineComponent({
                             trigger: ".scrollWhyFilo",
                             start: "top 70%",
                             end: "top 70%",
-                            markers: true,
                             toggleActions: "restart none reverse none"
                         },
                     });

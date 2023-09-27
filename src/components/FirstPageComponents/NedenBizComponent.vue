@@ -5,7 +5,7 @@
                 class="trapezoid-content skew-x-0 md:skew-x-12 my-10 ml-[50px] md:ml-[100px] flex flex-col justify-center md:justify-start items-center text-center md:text-start">
 
                 <div class="scrollNedenBiz" ref="main">
-                    <h1 class="text-[36px] md:text-[42px] fontFamilyNunito font-bold mt-10">Neden Trust & Go ?
+                    <h1 class="text-[36px] md:text-[42px] fontFamilyNunito font-bold">Neden Trust & Go ?
                     </h1>
                     <p class="text-justify text-gray-500 max-w-[400px] md:max-w-[600px] mt-5">Türkiye'nin
                         neresinde
@@ -46,7 +46,6 @@ export default defineComponent({
                             trigger: ".scrollNedenBiz",
                             start: "10% 70%",
                             end: "10% 70%",
-                            markers: true,
                             toggleActions: "restart none reverse none"
                         },
                     });

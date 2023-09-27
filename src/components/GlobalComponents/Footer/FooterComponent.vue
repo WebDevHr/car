@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ref, defineComponent } from 'vue';
 import TopFooterCard from "./TopFooterCard.vue"
 import LogoComponent from "../Header/LogoComponent.vue"
-
+``
 export default defineComponent({
     components: {
         TopFooterCard,
@@ -17,49 +17,26 @@ export default defineComponent({
             { name: 'ion', icon: "clarity:share-line", header: 'Bizi Takip Edin', link: '', linkHeader: 'Sosyal Mediyamız' },
             { name: 'ion', icon: "material-symbols:support-agent", header: 'Bizi Arayın', link: '', linkHeader: '+90 850 000 00 00' },
         ])
-        // gsap.registerPlugin(ScrollTrigger);
-        // const main = ref();
-        // let cty: gsap.Context;
+        const main2 = ref();
+        let context: gsap.Context;
 
-        // onMounted(() => {
-        //     ScrollTrigger.refresh()
-        //     setTimeout(() => {
-        //         cty = gsap.context((self) => {
-        //             const boxes = document.querySelectorAll('.scrollFooter')
-        //             console.log(boxes)
-        //             boxes.forEach(box => {
-        //                 gsap.from(box, {
-        //                     y: 100,
-        //                     opacity: 0,
-        //                     duration: 1,
-        //                     scrollTrigger: {
-        //                         trigger: ".scrollFooter",
-        //                         start: "0% 80%",
-        //                         end: "top 80%",
-        //                         markers: true,
-        //                         toggleActions: "restart none reverse none"
-        //                     },
-        //                 });
-        //             })
-        //             // gsap.from('.scrollFooter', {
-        //             //     y: 100,
-        //             //     opacity: 0,
-        //             //     duration: 1,
-        //             //     scrollTrigger: {
-        //             //         trigger: ".scrollFooter",
-        //             //         start: "0% 80%",
-        //             //         end: "top 80%",
-        //             //         markers: true,
-        //             //         toggleActions: "restart none reverse none"
-        //             //     },
-        //             // });
-        //         }, main.value); // <- Scope!
-        //     }, 1500)
-        // });
+        onMounted(() => {
+            context = gsap.context((context) => { })
+            context.add(() => {
+                gsap.from('.scrollFooter', {
+                    scrollTrigger: {
 
-        // onUnmounted(() => {
-        //     cty.revert(); // <- Easy Cleanup!
-        // });
+                    },
+                    duration: 2,
+                    x: 100
+
+                })
+            })
+        });
+
+        onUnmounted(() => {
+            context.revert(); // <- Easy Cleanup!
+        });
         return {
             cardData,
         };
@@ -69,13 +46,13 @@ export default defineComponent({
 
 
 <template>
-    <div class="flex flex-col justify-center items-center border-t-2 fontFamilyCinzel overflow-hidden">
-        <div class="border-b w-full">
-            <div class="flex flex-wrap justify-center scrollFooter">
+    <div class="flex flex-col justify-center items-center border-t-2 fontFamilyCinzel overflow-hidden" ref="main2">
+        <div class="border-b w-full md:py-10">
+            <div class="flex flex-wrap justify-center">
                 <top-footer-card class="" v-for="(data, index) in cardData" :key="index" :data="data" />
             </div>
         </div>
-        <div class="flex flex-row justify-center flex-wrap w-full scrollFooter">
+        <div class="flex flex-row justify-center flex-wrap w-full md:py-10">
             <div class="w-[250px] md:w-[50%] lg:w-[250px] text-center scrollFooter">
                 <h1 class="font-semibold my-5">UZUN DÖNEM FİLO KİRALAMA</h1>
                 <ul class="text-xs font-medium pl-1 mb-5 footerList">
