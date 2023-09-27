@@ -1,8 +1,6 @@
 <script lang="ts">
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 import { ref, defineComponent } from 'vue';
 import TopFooterCard from "./TopFooterCard.vue"
 import LogoComponent from "../Header/LogoComponent.vue"
@@ -19,50 +17,66 @@ export default defineComponent({
             { name: 'ion', icon: "clarity:share-line", header: 'Bizi Takip Edin', link: '', linkHeader: 'Sosyal Mediyamız' },
             { name: 'ion', icon: "material-symbols:support-agent", header: 'Bizi Arayın', link: '', linkHeader: '+90 850 000 00 00' },
         ])
-        onMounted(() => {
-            setTimeout(() => {
-                gsap.from(".scroll-animation", {
-                    scrollTrigger: {
-                        trigger: ".scroll-trigger",
-                        start: "20% 70%",
-                        end: "30% bottom",
-                        toggleActions: "restart none reverse none"
-                    },
-                    y: 100,
-                    opacity: 0,
-                    duration: 1
-                })
-                gsap.from(".scroll-animation2", {
-                    scrollTrigger: {
-                        trigger: ".scroll-trigger2",
-                        start: "20% 85%",
-                        end: "30% bottom",
-                        toggleActions: "restart none reverse none"
-                    },
-                    y: 50,
-                    opacity: 0,
-                    duration: 1
-                })
-            }, 1200)
-        })
+        // gsap.registerPlugin(ScrollTrigger);
+        // const main = ref();
+        // let cty: gsap.Context;
 
+        // onMounted(() => {
+        //     ScrollTrigger.refresh()
+        //     setTimeout(() => {
+        //         cty = gsap.context((self) => {
+        //             const boxes = document.querySelectorAll('.scrollFooter')
+        //             console.log(boxes)
+        //             boxes.forEach(box => {
+        //                 gsap.from(box, {
+        //                     y: 100,
+        //                     opacity: 0,
+        //                     duration: 1,
+        //                     scrollTrigger: {
+        //                         trigger: ".scrollFooter",
+        //                         start: "0% 80%",
+        //                         end: "top 80%",
+        //                         markers: true,
+        //                         toggleActions: "restart none reverse none"
+        //                     },
+        //                 });
+        //             })
+        //             // gsap.from('.scrollFooter', {
+        //             //     y: 100,
+        //             //     opacity: 0,
+        //             //     duration: 1,
+        //             //     scrollTrigger: {
+        //             //         trigger: ".scrollFooter",
+        //             //         start: "0% 80%",
+        //             //         end: "top 80%",
+        //             //         markers: true,
+        //             //         toggleActions: "restart none reverse none"
+        //             //     },
+        //             // });
+        //         }, main.value); // <- Scope!
+        //     }, 1500)
+        // });
+
+        // onUnmounted(() => {
+        //     cty.revert(); // <- Easy Cleanup!
+        // });
         return {
-            cardData
-        }
-    }
+            cardData,
+        };
+    },
 });
 </script>
 
 
 <template>
-    <div class="flex flex-col justify-center items-center border-t-2 fontFamilyCinzel">
+    <div class="flex flex-col justify-center items-center border-t-2 fontFamilyCinzel overflow-hidden">
         <div class="border-b w-full">
-            <div class="flex flex-wrap justify-center scroll-trigger">
-                <top-footer-card class="scroll-animation" v-for="(data, index) in cardData" :key="index" :data="data" />
+            <div class="flex flex-wrap justify-center scrollFooter">
+                <top-footer-card class="" v-for="(data, index) in cardData" :key="index" :data="data" />
             </div>
         </div>
-        <div class="flex flex-row justify-center flex-wrap w-full scroll-trigger2">
-            <div class="w-[250px] md:w-[50%] lg:w-[250px] text-center scroll-animation2">
+        <div class="flex flex-row justify-center flex-wrap w-full scrollFooter">
+            <div class="w-[250px] md:w-[50%] lg:w-[250px] text-center scrollFooter">
                 <h1 class="font-semibold my-5">UZUN DÖNEM FİLO KİRALAMA</h1>
                 <ul class="text-xs font-medium pl-1 mb-5 footerList">
                     <li>Filo Kiralamanın Avantajları</li>
@@ -70,7 +84,7 @@ export default defineComponent({
                     <li>Teklif Al</li>
                 </ul>
             </div>
-            <div class="w-[250px] xs:w-[50%] lg:w-[250px] text-center scroll-animation2">
+            <div class="w-[250px] xs:w-[50%] lg:w-[250px] text-center scrollFooter">
                 <h1 class="font-semibold my-5">KURUMSAL</h1>
                 <ul class="text-xs font-medium pl-1 mb-5 footerList">
                     <li>Hakkımızda</li>
@@ -80,14 +94,14 @@ export default defineComponent({
                     <li>Başkan'ın Mesajı</li>
                 </ul>
             </div>
-            <div class="w-[250px] md:w-[50%] lg:w-[250px] text-center scroll-animation2">
+            <div class="w-[250px] md:w-[50%] lg:w-[250px] text-center scrollFooter">
                 <h1 class="font-semibold my-5">İLETİŞİM</h1>
                 <ul class="text-xs font-medium pl-1 mb-5 footerList">
                     <li>Bize Mesaj Yazın</li>
                     <li>İletişim Bilgileri</li>
                 </ul>
             </div>
-            <div class="w-[250px] md:w-[50%] lg:w-[250px] text-center scroll-animation2">
+            <div class="w-[250px] md:w-[50%] lg:w-[250px] text-center scrollFooter">
                 <h1 class="font-semibold my-5">HİZMETLER</h1>
                 <ul class="text-xs font-medium pl-1 mb-5 footerList">
                     <li>Yedek Araç Hizmeti</li>

@@ -8,6 +8,7 @@ import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
 import WhyFiloComponent from "@/components/FirstPageComponents/WhyFiloComponent.vue"
 import NedenBiz from "@/components/FirstPageComponents/NedenBizComponent.vue"
+import { Icon } from '@iconify/vue';
 
 export default defineComponent({
   name: 'home',
@@ -17,7 +18,8 @@ export default defineComponent({
     Pagination,
     Navigation,
     WhyFiloComponent,
-    NedenBiz
+    NedenBiz,
+    Icon
   },
   setup() {
     const isLoading = ref(true)
@@ -88,8 +90,8 @@ export default defineComponent({
 
 <template>
   <div v-if="isLoading">
-    <div class="w-full h-[800px] bg-red-500">
-      <img src="" alt="">
+    <div class="w-full h-[600px] flex justify-center items-center">
+      <Icon icon="eos-icons:bubble-loading" width="200" height="200" />
     </div>
   </div>
   <div v-else class="bg-gray-50 ">

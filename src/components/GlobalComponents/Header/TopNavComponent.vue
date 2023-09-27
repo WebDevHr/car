@@ -2,7 +2,6 @@
 import { defineComponent } from 'vue';
 import { gsap } from "gsap"
 import { Icon } from '@iconify/vue';
-import { doesNotReject } from 'assert';
 
 interface NavLink {
     link: string;

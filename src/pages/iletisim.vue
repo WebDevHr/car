@@ -1,16 +1,44 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted } from 'vue'
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Icon } from '@iconify/vue';
+import BaseForm from '@/components/GlobalComponents/BaseComponents/BaseForm.vue';
 export default defineComponent({
   name: "Contact",
+  components: {
+    BaseForm,
+    Icon
+  },
   setup() {
-    return {}
+    const formData = ref({
+      name: '',
+      email: '',
+      phone_number: '',
+      message: '',
+      // Add more fields as needed
+    })
+
+
+    onMounted(() => {
+      gsap.from('.scrollContactForm', {
+        x: 100,
+        duration: 1,
+        stagger: 0.2,
+      })
+    });
+
+
+    return {
+      formData
+    }
   }
 })
 </script>
 
 <template>
   <div>
-    <div class="flex flex-col py-10 px-20">
+    <div class="flex flex-col py-10 px-20 border-b">
       <div class="flex justify-between items-center">
         <div class="text-start h-10 text-2xl font-bold text-gray-700">
           İletişim
@@ -23,11 +51,53 @@ export default defineComponent({
         </div>
       </div>
     </div>
-    <div class="py-10 px-20">
-      <form action="submit">
-        <label for="name">fsdfsd:</label>
-        <input name="name" type="text">
-      </form>
+    <div class="xs:px-20 px-5 flex flex-col">
+      <div class="flex justify-center">
+        <div class="md:w-[727px] xs:w-[465px] w-full p-8 mt-10 xs:shadow-md xs:rounded-lg xs:border-t">
+          <h1 class="text-2xl font-bold mb-3">Formu Doldurun
+            Hemen Sizi Arayalım</h1>
+          <p>Firmamız sizinle <b>iletişime geçerek</b> aracanızı en hızlı şekilde teslim almanızı sağlayacaktır.</p>
+        </div>
+      </div>
+      <base-form>
+        <!-- Slot content for form fields -->
+        <div
+          class="mb-4 border border-orange-500 rounded-full flex flex-row justify-center items-center scrollContactForm">
+          <label for="name" class="block font-bold md:ml-8 ml-5 mr-2 text-orange-500">
+            <Icon icon="mdi:user" width="22" height="22" />
+          </label>
+          <input type="text" id="name" v-model="formData.name"
+            class="p-2 border-none rounded-full focus:border-none no-shadow font-semibold md:w-[600px] xs:w-[350px]"
+            placeholder="Adınız" />
+        </div>
+        <div
+          class="mb-4 border border-orange-500 rounded-full flex flex-row justify-center items-center scrollContactForm">
+          <label for="email" class="block font-bold md:ml-8 ml-5 mr-2 text-orange-500">
+            <Icon icon="mdi:email" width="22" height="22" />
+          </label>
+          <input type="email" id="email" v-model="formData.email"
+            class="p-2 border-none rounded-full focus:border-none no-shadow font-semibold md:w-[600px] xs:w-[350px]"
+            placeholder="E-postanız" />
+        </div>
+        <div
+          class="mb-4 border border-orange-500 rounded-full flex flex-row justify-center items-center scrollContactForm">
+          <label for="phone_number" class="block font-bold md:ml-8 ml-5 mr-2 text-orange-500">
+            <Icon icon="mdi:phone" width="22" height="22" />
+          </label>
+          <input type="tel" id="phone_number" v-model="formData.phone_number"
+            class="p-2 border-none rounded-full focus:border-none no-shadow font-semibold md:w-[600px] xs:w-[350px]"
+            placeholder="05** *** ** **" />
+        </div>
+        <div class="mb-4 border border-orange-500 rounded-xl flex flex-row justify-center items-center scrollContactForm">
+          <label for="message" class="block font-bold md:ml-8 ml-5 mr-2 text-orange-500 self-start mt-3">
+            <Icon icon="tabler:message" width="22" height="22" />
+          </label>
+          <textarea type="text" id="message" v-model="formData.message"
+            class="p-2 border-none rounded-xl focus:border-none no-shadow font-semibold md:w-[600px] xs:w-[350px] min-h-[50px]"
+            placeholder="Mesajınız"></textarea>
+        </div>
+        <!-- Add more form fields using slots as needed -->
+      </base-form>
     </div>
   </div>
 </template>
@@ -35,3 +105,14 @@ export default defineComponent({
 <route lang="yaml">
   name : contact
 </route>
+
+
+<style scoped>
+.no-shadow:focus {
+  box-shadow: none;
+}
+
+.orange-color::placeholder {
+  @apply text-orange-500;
+}
+</style>
