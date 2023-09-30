@@ -6,11 +6,13 @@ module.exports = {
 			screens: {
                 'xs': '480px',
 				'xxs': '350px',
+				'2xl': '1536'
             },
 		},
 	},
 	variants: {
-		extend: {},
+		extend: {
+		},
 	},
 	plugins: [
 		require('@tailwindcss/forms'),

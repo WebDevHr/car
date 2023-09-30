@@ -4,9 +4,12 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Icon } from '@iconify/vue';
 import BaseForm from '@/components/GlobalComponents/BaseComponents/BaseForm.vue';
+import GoogleMap from '@/components/GoogleMap.vue'; // Adjust the import path
+
 export default defineComponent({
   name: "Contact",
   components: {
+    GoogleMap,
     BaseForm,
     Icon
   },
@@ -19,13 +22,22 @@ export default defineComponent({
       // Add more fields as needed
     })
 
+    let context: gsap.Context
+
     onMounted(() => {
-      gsap.from('.scrollContactForm', {
-        x: 100,
-        duration: 1,
-        stagger: 0.2,
+      context = gsap.context(() => { })
+      context.add(() => {
+        gsap.from('.scrollContactForm', {
+          y: 100,
+          duration: 1,
+          stagger: 0.2,
+          delay: 0.5,
+        })
       })
     });
+    onUnmounted(() => {
+      context.revert()
+    })
 
 
     return {
@@ -37,23 +49,23 @@ export default defineComponent({
 
 <template>
   <div>
-    <div class="flex flex-col py-8 sm:px-20 xs:px-10 px-3  border-b bg-gray-100 xs:tracking-wider">
-      <div class="flex justify-between items-center">
+    <div class="flex flex-col py-8 border-b bg-gray-100 xs:tracking-wider">
+      <div class="myCostumContainer flex flex-col xs:flex-row justify-between items-center">
         <div class="flex items-center text-start h-10 text-2xl font-bold text-gray-700">
-          İletişim
+          {{ $route.name }}
         </div>
-        <div class="flex flex-row justify-center">
+        <div class="flex flex-row justify-center items-center">
           <router-link to="/" class="hover:text-orange-500">
             <div class="flex flex-row items-center justify-center mr-3">
               <Icon icon="mdi:home" width="22" height="22" class="mr-2" />Anasayfa
             </div>
           </router-link>
-          /
+          <Icon icon="iconamoon:arrow-right-2-bold" width="22" height="22" />
           <span class="ml-3 text-orange-500">{{ $route.name }}</span>
         </div>
       </div>
     </div>
-    <div class="xs:px-20 px-5 flex flex-col">
+    <div class="myCostumContainer flex flex-col">
       <div class="flex justify-center">
         <div class="md:w-[727px] xs:w-[465px] w-full p-8 mt-10 xs:shadow-md xs:rounded-lg xs:border-t">
           <h1 class="text-2xl font-bold mb-3">Formu Doldurun

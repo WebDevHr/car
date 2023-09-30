@@ -1,6 +1,6 @@
 <template>
-    <div class="border-b">
-        <div class="header-component fontFamilyCinzel px-10 lg:px-20">
+    <div class="w-full border-b">
+        <div class="myCostumContainer header-component fontFamilyCinzel">
             <!-- Top Nav -->
             <logo-component :logoSrc="logoImage" />
             <top-nav-component :links="links" />
@@ -28,7 +28,12 @@ interface NavLink {
     link: string;
     linkName: string;
     dropDownImg: string;
-    subLinks: string[];
+    subLinks: SubLink[];
+}
+
+interface SubLink {
+    name: string;
+    route: string;
 }
 
 export default defineComponent({
@@ -58,7 +63,28 @@ export default defineComponent({
                 link: '/hizmetler',
                 linkName: 'Hizmetler',
                 dropDownImg: '/img/car-sport-outline.svg',
-                subLinks: ['Genel haberler', 'Araclarin durumu', 'Araclarin durumu', 'Araclarin durumu']
+                subLinks: [
+                    {
+                        name: 'Yedek Araç',
+                        route: '/hizmetler/yedek-arac'
+                    },
+                    {
+                        name: 'Lastik Yönetim',
+                        route: '/'
+                    },
+                    {
+                        name: 'Periyodik Bakım',
+                        route: '/'
+                    },
+                    {
+                        name: 'HGS Yönetim',
+                        route: '/'
+                    },
+                    {
+                        name: 'Hasar Yönetim',
+                        route: '/'
+                    }
+                ]
             },
             {
                 link: '/hakkimizda',

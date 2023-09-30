@@ -46,4 +46,4 @@
 .side-nav-component .side-nav-div .trigger-button-div .trigger-button {
     @apply text-lg w-full hover:text-white text-gray-400 py-2 my-2 ease-in-out duration-300 tracking-widest;
 }
-};
+}

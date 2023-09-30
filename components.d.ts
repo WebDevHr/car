@@ -13,6 +13,7 @@ declare module 'vue' {
     CarsCarousel: typeof import('./src/components/CarsComponents/CarsCarousel.vue')['default']
     CarsFilo: typeof import('./src/components/CarsComponents/CarsFilo.vue')['default']
     FooterComponent: typeof import('./src/components/GlobalComponents/Footer/FooterComponent.vue')['default']
+    GoogleMap: typeof import('./src/components/GoogleMap.vue')['default']
     HeaderComponent: typeof import('./src/components/GlobalComponents/Header/HeaderComponent.vue')['default']
     HumburgerComponent: typeof import('./src/components/GlobalComponents/Header/HumburgerComponent.vue')['default']
     'Icon:bx:bxMoon': typeof import('~icons/bx/bx-moon')['default']
@@ -25,6 +26,7 @@ declare module 'vue' {
     SideNavComponent: typeof import('./src/components/GlobalComponents/Header/SideNavComponent.vue')['default']
     TopFooterCard: typeof import('./src/components/GlobalComponents/Footer/TopFooterCard.vue')['default']
     TopNavComponent: typeof import('./src/components/GlobalComponents/Header/TopNavComponent.vue')['default']
+    VisiyonMisiyon: typeof import('./src/components/AboutUsComponents/VisiyonMisiyon.vue')['default']
     WhyFiloComponent: typeof import('./src/components/FirstPageComponents/WhyFiloComponent.vue')['default']
   }
 }

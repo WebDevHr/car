@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { ref, defineComponent, onMounted } from 'vue'
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
 import WhyFiloComponent from "@/components/FirstPageComponents/WhyFiloComponent.vue"
@@ -68,12 +68,12 @@ export default defineComponent({
       isLoading.value = false;
     }
 
-    onMounted(() => {
-      // Simulate image loading delay
-      setTimeout(() => {
-        isLoading.value = false;
-      }, 1000); // Adjust the delay according to your needs
-    });
+    // onMounted(() => {
+    //   // Simulate image loading delay
+    //   setTimeout(() => {
+    //     isLoading.value = false;
+    //   }, 1000); // Adjust the delay according to your needs
+    // });
 
     return {
       carouselData,
@@ -85,17 +85,17 @@ export default defineComponent({
 </script>
 
 <template>
-  <div v-if="isLoading">
+  <!-- <div v-if="isLoading">
     <div class="w-full h-[600px] flex justify-center items-center">
       <Icon icon="eos-icons:bubble-loading" width="200" height="200" />
     </div>
-  </div>
-  <div v-else class="bg-gray-50 ">
+  </div> -->
+  <div class="bg-gray-50 ">
     <main>
       <Carousel :wrap-around="true" :transition="800" :autoplay="4000" :pause-autoplay-on-hover="true">
         <Slide v-for="(slide, index) in carouselData" :key="index" class="w-full padding-0">
           <div class="carousel__item relative object-scale-down w-full max-h-[600px]">
-            <img v-if="!isLoading" :src="slide.img" alt="" class="inset-0" @load="onImageLoad">
+            <img :src="slide.img" alt="" class="inset-0" @load="onImageLoad">
             <div
               class="absolute z-[1009] max-w-[600px] top-0 left-0 md:ml-[100px] md:mt-[100px] sm:mx-[20px] sm:mt-[50px] mx-[20px] mt-[20px] text-left">
               <h1 class="text-white text-[24px] sm:text-[42px] md:text-[48px] font-bold w-[300px] leading-10">{{

@@ -33,12 +33,16 @@ declare module '@vue-router/routes' {
     'not-found': RouteRecordInfo<'not-found', '/:all(.*)', { all: ParamValue<true> }, { all: ParamValue<false> }>,
     'Araçlar': RouteRecordInfo<'Araçlar', '/araclar', Record<never, never>, Record<never, never>>,
     'Hakkımızda': RouteRecordInfo<'Hakkımızda', '/hakkimizda', Record<never, never>, Record<never, never>>,
-    'services': RouteRecordInfo<'services', '/hizmetler', Record<never, never>, Record<never, never>>,
+    'Hizmetlerimiz': RouteRecordInfo<'Hizmetlerimiz', '/hizmetler/', Record<never, never>, Record<never, never>>,
+    '/hizmetler/test': RouteRecordInfo<'/hizmetler/test', '/hizmetler/test', Record<never, never>, Record<never, never>>,
+    '/hizmetler/test2': RouteRecordInfo<'/hizmetler/test2', '/hizmetler/test2', Record<never, never>, Record<never, never>>,
+    'Yedek Araç': RouteRecordInfo<'Yedek Araç', '/hizmetler/yedek-arac', Record<never, never>, Record<never, never>>,
     'İletişim': RouteRecordInfo<'İletişim', '/iletisim', Record<never, never>, Record<never, never>>,
     'neden-filo': RouteRecordInfo<'neden-filo', '/neden-filo', Record<never, never>, Record<never, never>>,
     'other-page': RouteRecordInfo<'other-page', '/other-page', Record<never, never>, Record<never, never>>,
     '/s': RouteRecordInfo<'/s', '/s', Record<never, never>, Record<never, never>>,
     '/teklif-al': RouteRecordInfo<'/teklif-al', '/teklif-al', Record<never, never>, Record<never, never>>,
+    '/viziyon-misiyon': RouteRecordInfo<'/viziyon-misiyon', '/viziyon-misiyon', Record<never, never>, Record<never, never>>,
   }
 }
 

@@ -5,7 +5,12 @@ interface NavLink {
     link: string;
     linkName: string;
     dropDownImg: string;
-    subLinks: string[];
+    subLinks: SubLink[];
+}
+
+interface SubLink {
+    name: string;
+    route: string;
 }
 
 export default defineComponent({

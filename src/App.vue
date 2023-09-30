@@ -1,23 +1,57 @@
 <template>
 	<div id="app">
 		<header-component />
-		<router-view :key="$route.fullPath" />
+		<router-view>
+			<template v-slot="{ Component }">
+				<transition appear @before-enter="beforeEnter" @enter="enter" @leave="beforeLeave">
+					<component :is="Component" />
+				</transition>
+			</template>
+		</router-view>
 		<footer-component />
 	</div>
 </template>
   
-<script lang="ts">
-import HeaderComponent from "../src/components/GlobalComponents/Header/HeaderComponent.vue"
-import FooterComponent from "../src/components/GlobalComponents/Footer/FooterComponent.vue"
-export default {
-	components: {
-		HeaderComponent,
-		FooterComponent
-	},
-}
+<script setup lang="ts">
+import { gsap } from "gsap";
+
+const beforeEnter = (el: any) => {
+	el.style.opacity = 1;
+};
+
+const enter = (el: any, done: any) => {
+	gsap.from(el, {
+		x: -50,
+		opacity: 0,
+		duration: 2,
+		onComplete: done,
+	});
+};
+
+const beforeLeave = (el: any, done: any) => {
+	gsap.to(el, {
+		x: -50,
+		opacity: 0,
+		duration: 1,
+		onComplete: done,
+	});
+};
+
 </script>
   
 <style>
+.myCostumContainer {
+	@apply container mx-auto 2xl:max-w-[1280] px-2;
+}
+
+p {
+	@apply text-justify;
+}
+
+a:hover {
+	@apply text-orange-500;
+}
+
 .fontFamilyCinzel {
 	font-family: 'Cinzel', serif;
 }

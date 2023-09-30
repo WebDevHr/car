@@ -7,7 +7,12 @@ interface NavLink {
     link: string;
     linkName: string;
     dropDownImg: string;
-    subLinks: string[];
+    subLinks: SubLink[];
+}
+
+interface SubLink {
+    name: string;
+    route: string;
 }
 
 export default defineComponent({
@@ -65,7 +70,6 @@ export default defineComponent({
                         :class="{ 'active-link': $route.path === item.link }">
                         {{ item.linkName }}
                         <span v-if="item.subLinks.length != 0" class="pl-1">
-
                             <Icon v-if="dropdownsToggle[index]" icon="mingcute:down-fill" :rotate="2" />
                             <Icon v-else icon="mingcute:down-fill" :rotate="0" />
                         </span>
@@ -81,15 +85,13 @@ export default defineComponent({
                 class="hidden felx-row items-center lg:px-[200px] rounded-b absolute 
                     shadow fontFamilyNunito top-nav-ul z-[1005] bg-white overflow-hidden w-full border-transparent border-t-4 left-0"
                 :data-index="index">
-                <ul class="fontFamilyCinzel">
-
+                <ul class="fontFamilyCinzel ">
                     <li v-for="(sub, i) in item.subLinks" :key="i"
-                        class="hover:text-orange-500 text-gray-500 p-1 h-[40px] text-center font-semibold">
-                        <router-link :to="sub">
-                            {{ sub }}
+                        class="hover:text-orange-500 text-gray-500 p-1 h-[40px] font-semibold">
+                        <router-link :to="sub.route">
+                            {{ sub.name }}
                         </router-link>
                     </li>
-
                 </ul>
             </div>
         </div>

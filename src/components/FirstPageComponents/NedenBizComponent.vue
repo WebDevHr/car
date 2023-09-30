@@ -14,7 +14,7 @@
                         lideri olarak hizmet veren Trust & Go'den kiralayın.
                         Siz işinize bakın, gerisini biz hallederiz! İşimiz Ne?</p>
                     <button
-                        class="min-w-[150px] shadow px-5 py-3 rounded bg-green-600 hover:bg-green-700 text-white mt-5 text-md tracking-wide">Bizi
+                        class="min-w-[150px] shadow px-5 py-3 rounded bg-orange-500 hover:bg-orange-600 text-white mt-5 text-md tracking-wide">Bizi
                         Yakindan Taniyin.</button>
                 </div>
 
@@ -28,34 +28,35 @@ import { defineComponent, onMounted, onUnmounted } from 'vue'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+
 export default defineComponent({
     setup() {
-        gsap.registerPlugin(ScrollTrigger);
-        const main = ref();
-        let ctx: gsap.Context;
+        // gsap.registerPlugin(ScrollTrigger);
+        // const main = ref();
+        // let ctx: gsap.Context;
 
-        onMounted(() => {
-            ScrollTrigger.refresh()
-            setTimeout(() => {
-                ctx = gsap.context(() => {
-                    gsap.from('.scrollNedenBiz', {
-                        x: -100,
-                        opacity: 0,
-                        duration: 1,
-                        scrollTrigger: {
-                            trigger: ".scrollNedenBiz",
-                            start: "10% 70%",
-                            end: "10% 70%",
-                            toggleActions: "restart none reverse none"
-                        },
-                    });
-                }, main.value); // <- Scope!
-            }, 600)
-        });
+        // onMounted(() => {
+        //     ScrollTrigger.refresh()
+        //     setTimeout(() => {
+        //         ctx = gsap.context(() => {
+        //             gsap.from('.scrollNedenBiz', {
+        //                 x: -100,
+        //                 opacity: 0,
+        //                 duration: 1,
+        //                 scrollTrigger: {
+        //                     trigger: ".scrollNedenBiz",
+        //                     start: "10% 70%",
+        //                     end: "10% 70%",
+        //                     toggleActions: "restart none reverse none"
+        //                 },
+        //             });
+        //         }, main.value); // <- Scope!
+        //     }, 600)
+        // });
 
-        onUnmounted(() => {
-            ctx.revert(); // <- Easy Cleanup!
-        });
+        // onUnmounted(() => {
+        //     ctx.revert(); // <- Easy Cleanup!
+        // });
         return {}
     }
 

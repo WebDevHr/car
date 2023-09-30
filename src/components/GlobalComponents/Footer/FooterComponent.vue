@@ -17,26 +17,36 @@ export default defineComponent({
             { name: 'ion', icon: "clarity:share-line", header: 'Bizi Takip Edin', link: '', linkHeader: 'Sosyal Mediyamız' },
             { name: 'ion', icon: "material-symbols:support-agent", header: 'Bizi Arayın', link: '', linkHeader: '+90 850 000 00 00' },
         ])
-        const main2 = ref();
-        let context: gsap.Context;
+        // const links = ref([
+        //     {name: ''}
+        // ])
+        // const main2 = ref();
+        // let context: gsap.Context;
+        // gsap.registerPlugin(ScrollTrigger);
 
-        onMounted(() => {
-            context = gsap.context((context) => { })
-            context.add(() => {
-                gsap.from('.scrollFooter', {
-                    scrollTrigger: {
+        // onMounted(() => {
+        //     context = gsap.context((context) => { })
+        //     context.add(() => {
+        //         gsap.to('.scrollFooter', {
+        //             scrollTrigger: {
+        //                 trigger: ".scrollFooter",
+        //                 start: "top 70%",
+        //                 end: "top 70%",
+        //                 toggleActions: "restart none reverse none",
+        //                 markers: true
+        //             },
+        //             duration: 1,
+        //             opacity: 1,
+        //             y: -100,
+        //             backgroundColor: 'red'
 
-                    },
-                    duration: 2,
-                    x: 100
+        //         })
+        //     })
+        // });
 
-                })
-            })
-        });
-
-        onUnmounted(() => {
-            context.revert(); // <- Easy Cleanup!
-        });
+        // onUnmounted(() => {
+        //     context.revert(); // <- Easy Cleanup!
+        // });
         return {
             cardData,
         };
@@ -47,13 +57,15 @@ export default defineComponent({
 
 <template>
     <div class="flex flex-col justify-center items-center border-t-2 fontFamilyCinzel overflow-hidden" ref="main2">
-        <div class="border-b w-full md:py-10">
-            <div class="flex flex-wrap justify-center">
-                <top-footer-card class="" v-for="(data, index) in cardData" :key="index" :data="data" />
+        <section class="border-b w-full md:py-10">
+            <div class="myCostumContainer">
+                <div class="flex flex-row flex-wrap justify-center w-full scrollFooter">
+                    <top-footer-card v-for="(data, index) in cardData" :key="index" :data="data" />
+                </div>
             </div>
-        </div>
-        <div class="flex flex-row justify-center flex-wrap w-full md:py-10">
-            <div class="w-[250px] md:w-[50%] lg:w-[250px] text-center scrollFooter">
+        </section>
+        <section class="myCostumContainer flex flex-row flex-wrap md:py-10 w-full">
+            <div class="lg:basis-1/4 sm:basis-1/2 basis-full text-center">
                 <h1 class="font-semibold my-5">UZUN DÖNEM FİLO KİRALAMA</h1>
                 <ul class="text-xs font-medium pl-1 mb-5 footerList">
                     <li>Filo Kiralamanın Avantajları</li>
@@ -61,7 +73,7 @@ export default defineComponent({
                     <li>Teklif Al</li>
                 </ul>
             </div>
-            <div class="w-[250px] xs:w-[50%] lg:w-[250px] text-center scrollFooter">
+            <div class="lg:basis-1/4 sm:basis-1/2 basis-full text-center">
                 <h1 class="font-semibold my-5">KURUMSAL</h1>
                 <ul class="text-xs font-medium pl-1 mb-5 footerList">
                     <li>Hakkımızda</li>
@@ -71,35 +83,35 @@ export default defineComponent({
                     <li>Başkan'ın Mesajı</li>
                 </ul>
             </div>
-            <div class="w-[250px] md:w-[50%] lg:w-[250px] text-center scrollFooter">
+            <div class="lg:basis-1/4 sm:basis-1/2 basis-full text-center">
                 <h1 class="font-semibold my-5">İLETİŞİM</h1>
                 <ul class="text-xs font-medium pl-1 mb-5 footerList">
                     <li>Bize Mesaj Yazın</li>
                     <li>İletişim Bilgileri</li>
                 </ul>
             </div>
-            <div class="w-[250px] md:w-[50%] lg:w-[250px] text-center scrollFooter">
+            <div class="lg:basis-1/4 sm:basis-1/2 basis-full text-center">
                 <h1 class="font-semibold my-5">HİZMETLER</h1>
                 <ul class="text-xs font-medium pl-1 mb-5 footerList">
-                    <li>Yedek Araç Hizmeti</li>
-                    <li>Lastik Yönetim Hizmeti</li>
-                    <li>Periyodik Bakım Hizmeti</li>
-                    <li>HGS Yönetim Hizmeti</li>
-                    <li>Hasar Yönetim Hizmeti</li>
+                    <li><router-link to="/hizmetler/yedek-arac-hizmeti">Yedek Araç Hizmeti</router-link></li>
+                    <li><router-link to="/">Lastik Yönetim Hizmeti</router-link></li>
+                    <li><router-link to="/">Periyodik Bakım Hizmeti</router-link></li>
+                    <li><router-link to="/">HGS Yönetim Hizmeti</router-link></li>
+                    <li><router-link to="/">Hasar Yönetim Hizmeti</router-link></li>
                 </ul>
             </div>
-        </div>
-        <div class="flex items-center justify-center py-2 border-t-2 px-4 w-full">
-            <div class="md:flex flex-row justify-between w-[1400px]">
-                <div class="flex flex-row flex-wrap gap-x-4 py-2 text-xs">
-                    <router-link to="/">Gizlilik Politikası</router-link>
-                    <router-link to="/">Çerez Politikası</router-link>
-                    <router-link to="/">Kişisel Verilerin Kurunması kanunu</router-link>
-                    <router-link to="/">Kullanım kuşulları</router-link>
+        </section>
+        <section class=" border-t-2 w-full py-3">
+            <div class="flex lg:flex-row flex-col justify-between items-center px-10">
+                <div class="flex md:flex-row flex-col flex-wrap gap-x-4 py-2 text-xs text-center">
+                    <div class=""><router-link to="/">Gizlilik Politikası</router-link></div>
+                    <div class=""><router-link to="/">Çerez Politikası</router-link></div>
+                    <div class=""><router-link to="/">Kişisel Verilerin Kurunması kanunu</router-link></div>
+                    <div class=""><router-link to="/">Kullanım kuşulları</router-link></div>
                 </div>
-                <logo-component logo-src="" />
+                <logo-component logo-src="/" />
             </div>
-        </div>
+        </section>
     </div>
 </template>
 
