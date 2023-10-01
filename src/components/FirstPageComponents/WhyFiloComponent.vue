@@ -5,32 +5,32 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default defineComponent({
     setup() {
-        // gsap.registerPlugin(ScrollTrigger);
-        // const main = ref();
-        // let ctz: gsap.Context;
+        gsap.registerPlugin(ScrollTrigger);
+        const main = ref();
+        let ctz: gsap.Context;
 
-        // onMounted(() => {
-        //     ScrollTrigger.refresh()
-        //     setTimeout(() => {
-        //         ctz = gsap.context(() => {
-        //             gsap.from('.scrollWhyFilo', {
-        //                 x: 100,
-        //                 opacity: 0,
-        //                 duration: 1,
-        //                 scrollTrigger: {
-        //                     trigger: ".scrollWhyFilo",
-        //                     start: "top 70%",
-        //                     end: "top 70%",
-        //                     toggleActions: "restart none reverse none"
-        //                 },
-        //             });
-        //         }, main.value); // <- Scope!
-        //     }, 500)
-        // });
+        onMounted(() => {
+            ScrollTrigger.refresh()
+            setTimeout(() => {
+                ctz = gsap.context(() => {
+                    gsap.from('.scrollWhyFilo', {
+                        x: 100,
+                        opacity: 0,
+                        duration: 1,
+                        scrollTrigger: {
+                            trigger: ".scrollWhyFilo",
+                            start: "top 70%",
+                            end: "top 70%",
+                            toggleActions: "restart none reverse none"
+                        },
+                    });
+                }, main.value); // <- Scope!
+            }, 500)
+        });
 
-        // onUnmounted(() => {
-        //     ctz.revert(); // <- Easy Cleanup!
-        // });
+        onUnmounted(() => {
+            ctz.revert(); // <- Easy Cleanup!
+        });
         return {}
     },
 })

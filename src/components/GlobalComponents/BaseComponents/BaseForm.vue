@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center justify-center my-10">
+    <div class=" my-10 w-full">
         <form class="bg-white p-8 shadow-md rounded-lg border-t" @submit.prevent="submitForm">
             <slot></slot> <!-- Slot for form fields -->
 

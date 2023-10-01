@@ -31,32 +31,32 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default defineComponent({
     setup() {
-        // gsap.registerPlugin(ScrollTrigger);
-        // const main = ref();
-        // let ctx: gsap.Context;
+        gsap.registerPlugin(ScrollTrigger);
+        const main = ref();
+        let ctx: gsap.Context;
 
-        // onMounted(() => {
-        //     ScrollTrigger.refresh()
-        //     setTimeout(() => {
-        //         ctx = gsap.context(() => {
-        //             gsap.from('.scrollNedenBiz', {
-        //                 x: -100,
-        //                 opacity: 0,
-        //                 duration: 1,
-        //                 scrollTrigger: {
-        //                     trigger: ".scrollNedenBiz",
-        //                     start: "10% 70%",
-        //                     end: "10% 70%",
-        //                     toggleActions: "restart none reverse none"
-        //                 },
-        //             });
-        //         }, main.value); // <- Scope!
-        //     }, 600)
-        // });
+        onMounted(() => {
+            ScrollTrigger.refresh()
+            setTimeout(() => {
+                ctx = gsap.context(() => {
+                    gsap.from('.scrollNedenBiz', {
+                        x: -100,
+                        opacity: 0,
+                        duration: 1,
+                        scrollTrigger: {
+                            trigger: ".scrollNedenBiz",
+                            start: "10% 70%",
+                            end: "10% 70%",
+                            toggleActions: "restart none reverse none"
+                        },
+                    });
+                }, main.value); // <- Scope!
+            }, 600)
+        });
 
-        // onUnmounted(() => {
-        //     ctx.revert(); // <- Easy Cleanup!
-        // });
+        onUnmounted(() => {
+            ctx.revert(); // <- Easy Cleanup!
+        });
         return {}
     }
 

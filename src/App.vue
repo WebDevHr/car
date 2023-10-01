@@ -23,7 +23,7 @@ const enter = (el: any, done: any) => {
 	gsap.from(el, {
 		x: -50,
 		opacity: 0,
-		duration: 2,
+		duration: 1.5,
 		onComplete: done,
 	});
 };
@@ -32,7 +32,7 @@ const beforeLeave = (el: any, done: any) => {
 	gsap.to(el, {
 		x: -50,
 		opacity: 0,
-		duration: 1,
+		duration: 0.75,
 		onComplete: done,
 	});
 };
@@ -46,6 +46,10 @@ const beforeLeave = (el: any, done: any) => {
 
 p {
 	@apply text-justify;
+}
+
+h1 {
+	@apply text-gray-600 font-bold text-xl
 }
 
 a:hover {

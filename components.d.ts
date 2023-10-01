@@ -7,6 +7,8 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AddressComponent: typeof import('./src/components/ContactComponents/AddressComponent.vue')['default']
+    AdressComponent: typeof import('./src/components/ContactComponents/AdressComponent.vue')['default']
     AppHeader: typeof import('./src/components/AppHeader.vue')['default']
     BaseButton: typeof import('./src/components/GlobalComponents/BaseComponents/BaseButton.vue')['default']
     BaseForm: typeof import('./src/components/GlobalComponents/BaseComponents/BaseForm.vue')['default']
