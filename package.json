@@ -36,7 +36,7 @@
 		"@types/markerclustererplus": "^2.1.33",
 		"@types/node": "^18.0.4",
 		"@vueuse/components": "^8.9.3",
-		"@vueuse/core": "^8.9.3",
+		"@vueuse/core": "^10.5.0",
 		"@vueuse/head": "^0.7.6",
 		"autoprefixer": "^10.4.7",
 		"gsap": "^3.12.2",
